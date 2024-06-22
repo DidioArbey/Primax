@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-lg-6 col-sm-12 cont_right">
-            <center><img class="logo" src="{{ asset('assets/images/logo.png') }}" alt="Logo" /> </center>
+            <center><img class="logo" src="{{ asset('assets/images/logo-login.png') }}" alt="Logo" /> </center>
 
             <div class="change_password">
                 <p class="h1_p">Cambio de contraseña</p>

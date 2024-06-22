@@ -11,7 +11,7 @@
 
     <div class="col-lg-6 col-sm-12 img_back_left content-forgot">
 
-        <img class="logo_protela" src="{{ asset('assets/images/logo.png') }}" alt="Logo" />
+        <img class="logo_protela" src="{{ asset('assets/images/logo-login.png') }}" alt="Logo" />
 
         <div class="form-forgot">
             <p class="h1_p">Recuperar contraseña</p>
