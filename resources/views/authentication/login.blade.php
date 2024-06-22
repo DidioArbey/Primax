@@ -9,19 +9,13 @@
 <div class="row container-body">
 
     <div class="col-lg-6 col-sm-12 img_back_left content-login">
-        <img class="logo_protela" src="{{ asset('assets/images/logo.png') }}" alt="Logo" />
+        <img class="logos" src="{{ asset('assets/images/logo-login.png') }}" alt="Logo" />
 
         <div class="form-login">
 
-
-            <p class="h1_p">BIENVENIDOS A PROTELATH.COM</p>
-            <p class="p-text"> La plataforma de Talento Humano que nos conecta para estar cada vez más cerca. </p>
-
-            {{-- <p class="h1_p">INICIAR SESIÓN</p>
-            <p class="p-text">Si deseas visualizar los detalles y características de la plataforma, debes iniciar sesión
-                y tener la cuenta activa. </p> --}}
-
             <p class="h1_p">INICIAR SESIÓN</p>
+            <p class="p-text"> ¡Bienvenidos a Primax y Listo! Por favor, ingresa tu cuenta </p>
+
         </div>
 
         <form class="card auth_form" method="POST" action="{{ route('login') }}">
@@ -44,7 +38,7 @@
                 </div>
                 <br>
                 <div class="form-control-label">
-                    <label><a href="{{ route('password.forgot') }}" class="forget"><strong>Solicitar contrase&ntilde;a</strong></a></label>
+                    <label><a href="{{ route('password.forgot') }}" class="forget"><strong>¿Has olvidado tu contraseña?</strong></a></label>
                     <br>
                 </div>
                 @if ($errors->any())
@@ -56,8 +50,6 @@
             <button class="btn btn-login">Iniciar sesión</button>
         </form>
 
-        {{-- <button class="btn btn-login-microsoft">Iniciar sesión con Microsoft <img class="logo_microsoft"
-                src="{{ asset('assets/images/microsoft.png') }}" alt="Logo" /></button> --}}
     </div>
 
     <div class="col-lg-6 col-sm-12  img_back_right">

@@ -29,7 +29,7 @@
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/star.png')}}" alt="Ranking"><span>Ranking</span></a></li>
             @endif
 
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
+            <li class=""><a href="{{route('profile.edit')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
 
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/book.png')}}" alt="Biblioteca"><span>Biblioteca</span></a></li>
 
@@ -37,7 +37,7 @@
 
 
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
+            <li class=""><a href="{{route('users.list')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
             @endif
 
 
