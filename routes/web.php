@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 /*
@@ -15,7 +16,7 @@ use App\Http\Controllers\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/register', [LoginController::class, 'showLoginForm'])->name('user.login');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('user.register');
 
 Auth::routes();
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('user.login');
