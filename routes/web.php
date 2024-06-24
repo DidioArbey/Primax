@@ -15,6 +15,7 @@ use App\Http\Controllers\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/register', [LoginController::class, 'showLoginForm'])->name('user.login');
 
 Auth::routes();
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('user.login');

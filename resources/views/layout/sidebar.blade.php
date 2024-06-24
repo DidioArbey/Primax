@@ -1,7 +1,7 @@
 <!-- Left Sidebar -->
 <aside id="leftsidebar" class="sidebar" style="background-color: #EEEEEE">
     <div class="navbar-brand">
-        <a href="/home" target="_blank"><img src="{{asset('assets/images/logo-horizontal.png')}}" width="150" alt="Protela"></a>
+        <a href="/home" target="_blank"><img src="{{asset('assets/images/logo-horizontal.png')}}" width="150" alt="Primax"></a>
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
     </div>
     <div class="menu">
@@ -29,7 +29,7 @@
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/star.png')}}" alt="Ranking"><span>Ranking</span></a></li>
             @endif
 
-            <li class=""><a href="{{route('profile.edit')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
+            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
 
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/book.png')}}" alt="Biblioteca"><span>Biblioteca</span></a></li>
 
@@ -37,7 +37,7 @@
 
 
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="{{route('users.list')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
+            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
             @endif
 
 
