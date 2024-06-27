@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Genders;
 use App\Models\Profiles;
 use App\Models\LaborAreas;
+use App\Models\Countrys;
+use App\Models\BussinesLine;
+use App\Models\Positions;
 use App\Models\PasswordResetTokens;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -118,6 +121,19 @@ class UsersRepository {
     function getAllGenders(){
         return $genders= DB::select("SELECT * FROM genders ");
     }
+
+    function getAllPosition(){
+        return $positions = DB::select("SELECT * FROM positions");
+    }
+
+    function getAllCountrys(){
+        return $countrys = DB::select("SELECT * FROM countrys");
+    }
+
+    function getAllBussinessLine(){
+        return $bussinesLines = DB::select("SELECT * FROM business_line");
+    }
+
 
     function getAllProfiles(){
         $profiles = DB::table('roles AS p')->select('p.id', 'p.name', 'p.active')

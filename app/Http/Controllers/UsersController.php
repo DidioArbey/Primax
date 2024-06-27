@@ -33,7 +33,10 @@ class UsersController extends Controller
         $genders = $this->usersRepository->getAllGenders();
         $profiles = $this->usersRepository->getAllProfiles();
         $labor_areas = $this->usersRepository->getAllLaborAreas();
-        return view('users.list-users', ['users' => $users, 'genders' => $genders, 'profiles' => $profiles, 'labor_areas' => $labor_areas]);
+        $positions = $this->usersRepository->getAllPosition();
+        $countrys = $this->usersRepository->getAllCountrys();
+        $bussinesLines = $this->usersRepository->getAllBussinessLine();
+        return view('users.list-users', ['users' => $users, 'genders' => $genders, 'profiles' => $profiles, 'labor_areas' => $labor_areas,'positions' => $positions, 'countrys'=> $countrys, 'bussinesLines'=> $bussinesLines  ]);
     }
 
     function enable($id)

@@ -119,6 +119,14 @@
                                 </div>
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
+                                    <label for="document_number">Documento de identidad</label>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 form-group">
+                                    <input name="document_number" type="text" id="document_number" class="form-control"  placeholder="Ingrese el documento de identidad del usuario">
+                                    <div id="error_document_number_module"></div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
                                     <label for="nickname">Nickname</label>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 form-group">
@@ -126,13 +134,7 @@
                                     <div id="error_nickname_module"></div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
-                                    <label for="document_number">Documento de identidad</label>
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-sm-8 form-group">
-                                    <input name="document_number" type="text" id="document_number" class="form-control"  placeholder="Ingrese el documento de identidad del usuario">
-                                    <div id="error_document_number_module"></div>
-                                </div>
+
                                 <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
                                     <label for="phone">Teléfono</label>
                                 </div>
@@ -147,6 +149,32 @@
                                     <input name="email" type="email" id="email" class="form-control" required placeholder="Ingrese el correo electrónico de identidad del usuario">
                                     <div id="error_email_module"></div>
                                 </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
+                                    <label for="position_id">Cargo</label>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 form-group">
+                                    <select name="position_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="position_id">
+                                        @foreach($positions as $position)
+                                            <option value="{{ $position->id }}">{{ $position->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="error_position_id_module"></div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
+                                    <label for="country_id">País</label>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 form-group">
+                                    <select name="country_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="country_id">
+                                        @foreach($countrys as $country)
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="error_country_id_module"></div>
+                                </div>
+
+
                                 <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
                                     <label for="gender_id">Género</label>
                                 </div>
@@ -159,7 +187,7 @@
                                     <div id="error_gender_id_module"></div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
-                                    <label for="labor_area_id">Área</label>
+                                    <label for="labor_area_id">Establecimiento</label>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 form-group">
                                     <select name="labor_area_id" class="form-control show-tick ms select2" data-placeholder="Select" id="labor_area_id">
