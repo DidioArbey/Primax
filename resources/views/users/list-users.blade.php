@@ -92,7 +92,7 @@
     </div>
 
     <!--ADD Users -->
-    <div class="modal fade" id="add-user" tabindex="-1" role="dialog">
+    {{-- <div class="modal fade" id="add-user" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-users" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -228,7 +228,118 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div class="modal fade" id="add-user" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-users" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="title-modal" id="largeModalLabel">Crear nuevo usuario</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="body">
+                        <form id="form-user" class="form-horizontal" >
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Nombres</label>
+                                        <input name="name" type="text" id="name" class="form-control" placeholder="Ingrese el nombre del usuario">
+                                        <div id="error_name_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="document_number">Documento de identidad</label>
+                                        <input name="document_number" type="text" id="document_number" class="form-control"  placeholder="Ingrese el documento de identidad del usuario">
+                                        <div id="error_document_number_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Teléfono</label>
+                                        <input name="phone" type="tel" id="phone" class="form-control" placeholder="Ingrese el teléfono de identidad del usuario">
+                                        <div id="error_phone_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="position_id">Cargo</label>
+                                        <select name="position_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="position_id">
+                                            @foreach($positions as $position)
+                                                <option value="{{ $position->id }}">{{ $position->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_position_id_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender_id">Género</label>
+                                        <select name="gender_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="gender_id">
+                                            @foreach($genders as $gender)
+                                                <option value="{{ $gender->id }}">{{ $gender->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_gender_id_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="active">Perfil</label>
+                                        <select name="profile_id" class="form-control show-tick ms select2" data-placeholder="Select" id="profile_id">
+                                            @foreach($profiles as $profiles)
+                                                <option value="{{ $profiles->id }}">{{ $profiles->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_profile_id_module"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Apellidos</label>
+                                        <input name="lastname" type="text" id="lastname" class="form-control"  placeholder="Ingrese el apellido del usuario">
+                                        <div id="error_lastname_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nickname">Nickname</label>
+                                        <input name="nickname" type="text" id="nickname" class="form-control"  placeholder="Ingrese el nickname del usuario">
+                                        <div id="error_nickname_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input name="email" type="email" id="email" class="form-control" required placeholder="Ingrese el correo electrónico de identidad del usuario">
+                                        <div id="error_email_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country_id">País</label>
+                                        <select name="country_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="country_id">
+                                            @foreach($countrys as $country)
+                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_country_id_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="labor_area_id">Establecimiento</label>
+                                        <select name="labor_area_id" class="form-control show-tick ms select2" data-placeholder="Select" id="labor_area_id">
+                                            @foreach($labor_areas as $labor_area)
+                                                <option value="{{ $labor_area->id }}">{{ $labor_area->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_labor_area_id_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="active">Estado</label>
+                                        <select name="active" class="form-control show-tick ms select2" data-placeholder="Select" id="active">
+                                            <option value="0">Inactivo</option>
+                                            <option value="1">Activo</option>
+                                        </select>
+                                        <div id="error_active_module"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-save store-user">Crear</button>
+                    <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     @include('users.import-users')
 
