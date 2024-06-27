@@ -59,10 +59,11 @@ class UsersRepository {
 
     public function getAllUsers(){
         $users = DB::table('users AS u')
-            ->select('u.id', 'u.profile_id', 'u.name', 'u.lastname', 'u.document_number', 'u.phone', 'u.email', 'u.gender_id', 'u.labor_area_id', 'u.state_id', 'u.active')
+            ->select('u.id', 'u.profile_id', 'u.name', 'u.lastname', 'u.nickname','u.document_number', 'u.phone', 'u.email', 'u.gender_id', 'u.labor_area_id', 'u.state_id', 'u.active')
             ->where('u.state_id', 5)
             ->orderBy('u.created_at', 'desc')
             ->get();
+            // dd($users);
         return $users;
     }
 
@@ -71,6 +72,7 @@ class UsersRepository {
         $user->profile_id = request('profile_id');
         $user->name = request('name');
         $user->lastname = request('lastname');
+        $user->nickname = request('nickname');
         $user->document_number = request('document_number');
         $user->phone = request('phone');
         $user->email = request('email');
@@ -78,6 +80,10 @@ class UsersRepository {
         $random_password = Str::random(16);
         $user->password = Hash::make($random_password);
         $user->labor_area_id = request('labor_area_id');
+        $user->positions_id = request('positions_id');
+        $user->country_id = request('country_id');
+        $user->business_line_id = request('business_line_id');
+        $user->company_id = request('company_id');
         $user->remember_token = Str::random(60);
         $user->state_id = 5;
         $user->active = request('active');
@@ -246,6 +252,7 @@ class UsersRepository {
             'phone' => request('phone'),
             'email' => request('email'),
             'gender_id' => request('gender_id'),
+            'nickname' => request('nickname'),
             'updated_by_user_id' =>  Auth::id(),
         ]);
         return $user;

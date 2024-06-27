@@ -38,6 +38,7 @@
                                         <th class="text-center">Cod</th>
                                         <th class="text-center">Nombres</th>
                                         <th class="text-center">Apellidos</th>
+                                        <th class="text-center">Nickname</th>
                                         <th class="text-center">Documento de identidad</th>
                                         <th class="text-center">Teléfono</th>
                                         <th class="text-center">Email</th>
@@ -51,6 +52,7 @@
                                         <th scope="row" class="text-center">{{ $user->id }}</th>
                                         <td >{{ $user->name }}</td>
                                         <td>{{ $user->lastname }}</td>
+                                        <td>{{ $user->nickname }}</td>
                                         <td>{{ $user->document_number }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->email }}</td>
@@ -115,6 +117,15 @@
                                     <input name="lastname" type="text" id="lastname" class="form-control"  placeholder="Ingrese el apellido del usuario">
                                     <div id="error_lastname_module"></div>
                                 </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
+                                    <label for="nickname">Nickname</label>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 form-group">
+                                    <input name="nickname" type="text" id="nickname" class="form-control"  placeholder="Ingrese el nickname del usuario">
+                                    <div id="error_nickname_module"></div>
+                                </div>
+
                                 <div class="col-lg-4 col-md-4 col-sm-4 form-control-label">
                                     <label for="document_number">Documento de identidad</label>
                                 </div>

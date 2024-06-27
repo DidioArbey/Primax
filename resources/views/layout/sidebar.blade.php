@@ -10,7 +10,11 @@
                 <div class="user-info">
                     <div class="image"><a href="#"><img src="{{asset('assets/images/profile_avatar.png')}}" alt="User"></a></div>
                     <div class="detail">
-                        <h4 class="name-user">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} {{{ isset(Auth::user()->lastname) ? Auth::user()->lastname : Auth::user()->email }}}</h4>
+                        <h4 class="name-user">
+                        {{{ isset(Auth::user()->nickname) ? Auth::user()->nickname : (isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email) }}}
+                        {{{ isset(Auth::user()->nickname) ? '' : (isset(Auth::user()->lastname) ? Auth::user()->lastname : '') }}}
+                        {{-- <h4 class="name-user">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} {{{ isset(Auth::user()->lastname) ? Auth::user()->lastname : Auth::user()->email }}}</h4> --}}
+                        </h4>
                     </div>
                 </div>
             </li>
@@ -29,7 +33,7 @@
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/star.png')}}" alt="Ranking"><span>Ranking</span></a></li>
             @endif
 
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
+            <li class=""><a href="{{route('profile.edit')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
 
             <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/book.png')}}" alt="Biblioteca"><span>Biblioteca</span></a></li>
 
@@ -37,7 +41,7 @@
 
 
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
+            <li class=""><a href="{{route('users.list')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
             @endif
 
 
