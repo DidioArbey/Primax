@@ -14,7 +14,7 @@
 
     <div class="col-md-12 col-sm-12">
         <div class="header">
-            <img src="https://primax.com.pe/wp-content/uploads/2023/06/gnv-bottom-banner-e1687985521379.png" class="img-fluid" alt="Responsive image">
+            <img src="{{ asset('assets/images/banner/banner-usuarios-administrador.jpg') }}" class="img-fluid" alt="Responsive image">
         </div>
     </div>
 
