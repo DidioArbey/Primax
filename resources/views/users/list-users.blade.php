@@ -35,28 +35,29 @@
                             <table id="table_users" class="table dt-responsive nowrap" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Cod</th>
-                                        <th class="text-center">Nombres</th>
-                                        <th class="text-center">Apellidos</th>
-                                        <th class="text-center">Nickname</th>
+                                        {{-- <th class="text-center">Cod</th> --}}
+                                        <th class="text-center">Nombres y apellidos</th>
+                                        {{-- <th class="text-center">Apellidos</th> --}}
                                         <th class="text-center">Documento de identidad</th>
+
+                                        <th class="text-center">Nickname</th>
                                         <th class="text-center">Teléfono</th>
                                         <th class="text-center">Email</th>
-                                        <th class="text-center">Estado</th>
+                                        {{-- <th class="text-center">Estado</th> --}}
                                         <th class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
                                     <tr>
-                                        <th scope="row" class="text-center">{{ $user->id }}</th>
-                                        <td >{{ $user->name }}</td>
-                                        <td>{{ $user->lastname }}</td>
-                                        <td>{{ $user->nickname }}</td>
+                                        {{-- <th scope="row" class="text-center">{{ $user->id }}</th> --}}
+                                        <td >{{ $user->name }} {{ $user->lastname }}</td>
+                                        {{-- <td>{{ $user->lastname }}</td> --}}
                                         <td>{{ $user->document_number }}</td>
+                                        <td>{{ $user->nickname }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td class="text-center">{{ $user->active == 1 ? 'Activo' : 'Inactivo' }}
+                                        {{-- <td class="text-center">{{ $user->active == 1 ? 'Activo' : 'Inactivo' }} --}}
                                         </td>
                                         <td class="text-right">
                                             <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn-actions"><img class="img-actions"
@@ -78,7 +79,9 @@
                                             <a onclick="deleteUser({{ $user->id }})" class="btn-actions"><img class="img-actions"
                                                     src="{{ asset('assets/images/icons/trash.svg') }}"
                                                     alt="delete"></a>
-                                            <a onclick='resetPassword("{{ $user->email }}")' class="btn-reset" >Reset password</a>
+                                            <a onclick='resetPassword("{{ $user->email }}")' class="btn-reset"><img class="img-actions"
+                                                    src="{{ asset('assets/images/icons/restepass.png') }}"
+                                                    alt="reset password"></a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -267,15 +270,6 @@
                                         <div id="error_position_id_module"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="gender_id">Género</label>
-                                        <select name="gender_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="gender_id">
-                                            @foreach($genders as $gender)
-                                                <option value="{{ $gender->id }}">{{ $gender->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <div id="error_gender_id_module"></div>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="active">Perfil</label>
                                         <select name="profile_id" class="form-control show-tick ms select2" data-placeholder="Select" id="profile_id">
                                             @foreach($profiles as $profiles)
@@ -283,6 +277,25 @@
                                             @endforeach
                                         </select>
                                         <div id="error_profile_id_module"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="active">Linea de Negocio</label>
+                                        <select name="business_line_id" class="form-control show-tick ms select2" data-placeholder="Select" id="business_line_id">
+                                            @foreach($bussinesLines as $bussineLine)
+                                                <option value="{{ $bussineLine->id }}"><span> {{ $bussineLine->code }}</span> {{ $bussineLine->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_business_line_id_module"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender_id">Género</label>
+                                        <select name="gender_id" class="form-control show-tick ms select2" data-placeholder="Seleccionar" id="gender_id">
+                                            @foreach($genders as $gender)
+                                                <option value="{{ $gender->id }}">{{ $gender->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div id="error_gender_id_module"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
@@ -322,8 +335,8 @@
                                     <div class="form-group">
                                         <label for="active">Estado</label>
                                         <select name="active" class="form-control show-tick ms select2" data-placeholder="Select" id="active">
-                                            <option value="0">Inactivo</option>
                                             <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
                                         </select>
                                         <div id="error_active_module"></div>
                                     </div>
@@ -355,6 +368,7 @@
     <script src="{{asset('assets/js/users/users.js')}}"></script>
     <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script>
     <script src="{{asset('assets/js/pages/forms/dropify.js')}}"></script>
+
 @stop
 
 

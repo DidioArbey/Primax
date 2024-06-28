@@ -21,33 +21,40 @@
 
             {{-- home  --}}
 
-            @can('home.index')
                 <li class=""><a id="p-m-c" href="{{route('home.index')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/misCursos.png')}}" alt="Mis Cursos"><span>Mis Cursos</span></a></li>
-            @endcan
-            {{-- Evaluaciones  --}}
+            {{-- Dashboard --}}
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/assessment.png')}}" alt="Evaluaciones"><span>Evaluaciones</span></a></li>
+                <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/dashboard-admin-orange.png')}}" alt="Dashboard"><span>Dashboard</span></a></li>
             @endif
             {{-- Ranking --}}
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/star.png')}}" alt="Ranking"><span>Ranking</span></a></li>
+            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/ranking-icon-orange.png')}}" alt="Ranking"><span>Ranking</span></a></li>
             @endif
-
-            <li class=""><a href="{{route('profile.edit')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
-
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/book.png')}}" alt="Biblioteca"><span>Biblioteca</span></a></li>
-
-            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav/help.png')}}" alt="Mi perfil"><span>Ayuda</span></a></li>
-
-
+            {{-- Biblioteca --}}
             @if (Auth::user()->profile_id == 1)
-            <li class=""><a href="{{route('users.list')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/users.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
+                <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/biblioteca-admin-orange.png')}}" alt="Gestionar Biblioteca"><span>Gestionar Biblioteca</span></a></li>
+            @endif
+            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/biblioteca-icon-orange.png')}}" alt="Biblioteca"><span>Biblioteca</span></a></li>
+            {{-- Noticias --}}
+            @if (Auth::user()->profile_id == 1)
+                <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/gestion-noticias-orange.png')}}" alt="Gestionar Noticias"><span>Gestionar Noticias</span></a></li>
+            @endif
+            <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/noticias-admin-orange.png')}}" alt="Noticias"><span>Noticias</span></a></li>
+            {{-- Banners --}}
+            @if (Auth::user()->profile_id == 1)
+                <li class=""><a href="#" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/gestion-banners-orange.png')}}" alt="Gestionar Banners"><span>Gestionar Banners</span></a></li>
+            @endif
+            {{-- Mi Perfil --}}
+            <li class=""><a href="{{route('profile.edit')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav/user.png')}}" alt="Mi perfil"><span>Mi Perfil</span></a></li>
+            {{-- Usuarios --}}
+            @if (Auth::user()->profile_id == 1)
+            <li class=""><a href="{{route('users.list')}}" class="item-flex"><img src="{{asset('assets/images/icons_nav_admin/usuarios-admin-orange.png')}}" alt="Usuarios"><span>Usuarios</span></a></li>
             @endif
 
 
             <li class="logout">
                 <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="mega-menu item-flex" title="Sign Out">
-                    <img src="{{asset('assets/images/icons_nav/logOut.png')}}" alt="Salir"><span>Cerrar Sesión</span>
+                    <img src="{{asset('assets/images/icons_nav_admin/cerrar-sesion-icon-orange.png')}}" alt="Salir"><span>Cerrar Sesión</span>
                 </a>
             </li>
 

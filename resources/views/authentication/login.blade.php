@@ -8,6 +8,9 @@
 
 <div class="row container-body">
 
+    <div class="col-lg-6 col-sm-12  img_back_right">
+    </div>
+
     <div class="col-lg-6 col-sm-12 img_back_left content-login">
         <img class="logos" src="{{ asset('assets/images/logo-login.png') }}" alt="Logo" />
 
@@ -52,8 +55,7 @@
 
     </div>
 
-    <div class="col-lg-6 col-sm-12  img_back_right">
-    </div>
+
 
 </div>
 @stop
